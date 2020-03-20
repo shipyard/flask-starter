@@ -19,7 +19,7 @@ services:
 
   worker:
     labels:
-      shipyard.before: 'pipenv run flask db upgrade'
+      shipyard.before: 'poetry run flask db upgrade'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
