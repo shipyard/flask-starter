@@ -45,6 +45,7 @@ RUN poetry install
 # Add the project
 # NOTE Run the install again to install the project
 ADD src ./src
+ADD migrations ./migrations
 RUN poetry install
 
 # Add system files
