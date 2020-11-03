@@ -9,16 +9,13 @@ A basic Flask starter project to get started with Docker Compose and Shipyard.
 - Celery (with example heartbeat task configured)
 - Flask-SQLAlchemy
 
-## Getting Started
-
-To get started take a look at the Makefile in the root directory, there are some helpful commands to get you started ex:
-
-```
-make develop
-```
-
 ## Dependencies
 
-`docker`
-`docker-compose`
-`make`
+- Make
+- Docker & Docker Compose
+
+## Getting Started
+
+- Run `make develop` at the root of this project.
+- Visit the app at http://localhost:8080.
+- Make your code changes! The app should be live-reloaded whenever you save.
