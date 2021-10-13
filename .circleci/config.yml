@@ -1,6 +1,6 @@
 version: '2.1'
 orbs:
-  shipyard: shipyard/shipyard@1
+  shipyard: shipyard/shipyard@3.0.0
 jobs:
   print-env-data:
     machine:
