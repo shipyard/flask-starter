@@ -3,6 +3,8 @@ orbs:
   shipyard: shipyard/shipyard@3.0.0
 jobs:
   print-env-data:
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
       - shipyard/fetch-shipyard-env
