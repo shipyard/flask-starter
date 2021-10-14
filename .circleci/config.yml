@@ -12,7 +12,7 @@ jobs:
           command: |
             export CYPRESS_BASE_URL=${SHIPYARD_ENVIRONMENT_URL}
             export CYPRESS_BYPASS_TOKEN=${SHIPYARD_BYPASS_TOKEN}
-            env
+            env | grep -e SHIPYARD -e CYPRESS
           name: Print out the environment data
 workflows:
   use-my-orb:
