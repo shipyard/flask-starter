@@ -9,10 +9,10 @@ jobs:
       - checkout
       - shipyard/fetch-shipyard-env
       - run:
-          command: >
+          command: |
             export CYPRESS_BASE_URL=${SHIPYARD_ENVIRONMENT_URL}
             export CYPRESS_BYPASS_TOKEN=${SHIPYARD_BYPASS_TOKEN}
-            printenv
+            env
           name: Print out the environment data
 workflows:
   use-my-orb:
