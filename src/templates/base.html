@@ -58,9 +58,7 @@
       <div class="doom-button-container">
         <img id="doom-button" src="/static/doom.png">
       </div>
-      <div class="doom-container">
-        <iframe id="doom" scrolling="no" src="http://localhost:8000" title="DOOM WASM" style="display:none"></iframe>
-      </div>
+      <div class="doom-container"></div>
     </footer>
 
     <!-- Bootstrap core JavaScript
@@ -73,9 +71,17 @@
     <script>
       const button = document.getElementById('doom-button');
       button.addEventListener('click', () => {
-        const iframe = document.getElementById('doom');
-        if (iframe.style.display === "none") iframe.style.display = "block";
-        else iframe.style.display = "none";
+        const container = document.querySelector(".doom-container");
+        if (container.hasChildNodes()) {
+          while (container.firstChild) container.removeChild(container.firstChild);
+        } else {
+          const iframe = document.createElement('iframe');
+          iframe.scrolling = "no";
+          iframe.src = "http://localhost:8000";
+          iframe.title = "DOOM WASM";
+          iframe.id = "doom";
+          container.appendChild(iframe);
+        }
       });
     </script>
   </body>
