@@ -6,3 +6,21 @@ body {
   padding: 3rem 1.5rem;
   text-align: center;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.doom-container {
+  margin-left: auto;
+  margin-right: auto;
+  height: 625px;
+  width: 840px;
+}
+
+.doom-container iframe {
+  height:100%;
+  width:100%;
+}

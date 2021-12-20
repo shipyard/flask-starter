@@ -17,6 +17,11 @@ services:
     ports:
       - '8080:8080'
 
+  doom:
+    image: 'elliottking/doom-wasm:0.1.1'
+    ports:
+      - '8000:8000'
+
   worker:
     labels:
       shipyard.before: 'poetry run flask db upgrade'
