@@ -55,8 +55,11 @@
     </main><!-- /.container -->
 
     <footer class="footer">
+      <div class="doom-button-container">
+        <img id="doom-button" src="/static/doom.png">
+      </div>
       <div class="doom-container">
-        <iframe scrolling="no" src="http://localhost:8000" title="DOOM WASM"></iframe>
+        <iframe id="doom" scrolling="no" src="http://localhost:8000" title="DOOM WASM" style="display:none"></iframe>
       </div>
     </footer>
 
@@ -67,5 +70,13 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script>
+      const button = document.getElementById('doom-button');
+      button.addEventListener('click', () => {
+        const iframe = document.getElementById('doom');
+        if (iframe.style.display === "none") iframe.style.display = "block";
+        else iframe.style.display = "none";
+      });
+    </script>
   </body>
 </html>
