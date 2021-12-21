@@ -4,6 +4,7 @@ from flask import (
 )
 
 from src.models import Counter
+from src.settings import Settings as S
 
 
 blueprint = Blueprint('counter', __name__)
@@ -13,4 +14,4 @@ blueprint = Blueprint('counter', __name__)
 def index():
     counter = Counter.get_create(label='Test')
     counter.increment()
-    return render_template('counter.html', counters=Counter.list())
+    return render_template('counter.html', counters=Counter.list(), doom_url=S.DOOM_URL)

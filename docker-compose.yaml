@@ -5,11 +5,13 @@ services:
   web:
     labels:
       shipyard.route: '/'
+      shipyard.primary-route: true
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
       DEV: ${DEV}
       FLASK_DEBUG: '1'
+      DOOM_URL: ${DOOM_URL}
     volumes:
       - './filesystem/entrypoints:/entrypoints:ro'
       - './migrations:/srv/migrations'
@@ -18,6 +20,8 @@ services:
       - '8080:8080'
 
   doom:
+    labels:
+      shipyard.route: '/'
     image: 'elliottking/doom-wasm:0.1.1'
     ports:
       - '8000:8000'
