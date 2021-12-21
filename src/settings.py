@@ -9,11 +9,20 @@ class Parse:
         """Parse booleans (defaults to False)"""
         return os.getenv(field, '').lower() in ['true', '1']
 
+    @staticmethod
+    def string(field, default=None):
+        """
+        Parse strings - defaults to the default value provided even if the environment variable is
+        set to a blank string.
+        """
+        return os.getenv(field) or default
+
 
 class Settings:
 
     # General
     DEV = Parse.bool('DEV')
+    DOOM_URL = Parse.string('DOOM_URL', 'http://localhost:8000')
     REDIS_HOST = os.getenv('REDIS_HOST', 'redis')
     REDIS_URL = f'redis://{REDIS_HOST}:6379'
 

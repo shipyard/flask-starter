@@ -54,6 +54,13 @@
       {% block content %}{% endblock %}
     </main><!-- /.container -->
 
+    <footer class="footer">
+      <div class="doom-button-container">
+        <img id="doom-button" src="/static/doom.png">
+      </div>
+      <div class="doom-container"></div>
+    </footer>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -61,5 +68,21 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script>
+      const button = document.getElementById('doom-button');
+      button.addEventListener('click', () => {
+        const container = document.querySelector(".doom-container");
+        if (container.hasChildNodes()) {
+          while (container.firstChild) container.removeChild(container.firstChild);
+        } else {
+          const iframe = document.createElement('iframe');
+          iframe.scrolling = "no";
+          iframe.src = "{{ doom_url }}";
+          iframe.title = "DOOM WASM";
+          iframe.id = "doom";
+          container.appendChild(iframe);
+        }
+      });
+    </script>
   </body>
 </html>
