@@ -14,4 +14,7 @@ blueprint = Blueprint('counter', __name__)
 def index():
     counter = Counter.get_create(label='Test')
     counter.increment()
-    return render_template('counter.html', counters=Counter.list(), doom_url=S.DOOM_URL)
+    doom_url = S.DOOM_URL
+    if doom_url[:4] != 'http':
+        doom_url = 'https://' + doom_url
+    return render_template('counter.html', counters=Counter.list(), doom_url=doom_url)

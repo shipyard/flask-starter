@@ -11,7 +11,7 @@ services:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
       DEV: ${DEV}
       FLASK_DEBUG: '1'
-      DOOM_URL: ${DOOM_URL}
+      DOOM_URL: ${SHIPYARD_DOMAIN_DOOM}
     volumes:
       - './filesystem/entrypoints:/entrypoints:ro'
       - './migrations:/srv/migrations'
