@@ -8,7 +8,6 @@ from src.tasks import make_celery
 
 
 class Application:
-
     @classmethod
     def boot(cls):
         """Begin the application"""
@@ -26,7 +25,7 @@ class Application:
         self.flask_app.config.from_object(S)
 
         # Register the public routes
-        for blueprint in [routes.counter]:
+        for blueprint in [routes.counter, routes.pugs]:
             self.flask_app.register_blueprint(blueprint)
 
         # Init Celery
@@ -41,7 +40,6 @@ class Application:
         self.migrate = Migrate(self.flask_app, self.db)
 
     def init_routes(self):
-
         @self.flask_app.route('/')
         def home(key):
             return 'home'
