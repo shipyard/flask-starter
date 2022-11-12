@@ -6,4 +6,5 @@ blueprint = Blueprint('pugs', __name__)
 
 @blueprint.route('/pugs')
 def pugs():
-    return render_template('pugs.html', pugs=['Potato', 'Lulu', 'Winston'])
+    pugs = ['Potato', 'Lulu', 'Winston', 'El Puggio', 'Kjartan the Pugnacious', 'Velma the Pugess']
+    return render_template('pugs.html', pugs=pugs)
