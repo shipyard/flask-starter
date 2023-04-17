@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   web:
     labels:
       shipyard.route: '/'
@@ -31,7 +30,7 @@ services:
       - './migrations:/srv/migrations'
       - './src:/srv/src:ro'
 
-  postgres:
+  postgres_db:
     image: 'postgres:9.6-alpine'
     environment:
       POSTGRES_USER: 'obscure-user'
