@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
 
@@ -28,7 +28,7 @@ services:
 
   worker:
     labels:
-      shipyard.before: 'poetry run flask db upgrade'
+      shipyard.init: 'poetry run flask db upgrade'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
